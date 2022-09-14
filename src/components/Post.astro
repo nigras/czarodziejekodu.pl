@@ -1,35 +1,25 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import Logo from "../../public/assets/czarodzieje-kodu.png";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1><img src={Logo} alt="Czarodzieje kodu" /></h1>
-    <h2>{frontmatter.title}</h2>
-    <section>
-      <img src={frontmatter.thumbnail} alt="Czarodzieje kodu" />
-      <article>
-        <slot />
-      </article>
-    </section>
-  </main>
-</Layout>
+<header>
+  <img src={frontmatter.thumbnail} alt="Czarodzieje kodu" />
+  <h2>{frontmatter.title} ({frontmatter.order})</h2>
+</header>
+
+<section>
+  <article>
+    <slot />
+  </article>
+</section>
 
 <style>
   h1 {
     margin: 2rem 0;
   }
 
-  main {
-    margin: auto;
-
-    max-width: 100ch;
-  }
-
   article {
-    background: #fff;
+    /*  */
     padding: 1.2em;
   }
 
@@ -47,7 +37,23 @@ const { frontmatter } = Astro.props;
     display: grid;
     grid-template-columns: 1fr auto;
     grid-gap: 1rem;
+    padding: 1rem max(1rem,calc(50% - 50ch));
+    background-color: #ffc;
+    
+  }
+
+  header {
+    display: grid;
+    /* margin: 2rem 0 1rem 0; */
+    grid-template-columns: 1fr 12fr;
+    align-items: center;
+    grid-gap: 1rem;
+    padding: 1rem max(1rem,calc(50% - 50ch));
     background-color: var(--color-light);
+  }
+  img {
+    width: 100px;
+    height: auto;
   }
 
   .link-card-grid {

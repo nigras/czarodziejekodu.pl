@@ -1,22 +1,37 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/BaseLayout.astro";
 import Card from "../components/Card.astro";
-import Logo from "../../public/assets/czarodzieje-kodu.png";
+import Logo from "/assets/czarodzieje-kodu.png";
 
-import pages from "../data/czarodzieje.json";
+import Post from "../components/Post.astro";
+
+
+const posts = await Astro.glob("../data/2022/*.md");
+
+const sortedPosts = posts.sort(function (a, b) {
+  const x = a.frontmatter.order;
+  const y = b.frontmatter.order;
+
+  if (b.frontmatter.order > a.frontmatter.order) return -1;
+  if (b.frontmatter.order < a.frontmatter.order) return 1;
+  return 0;
+});
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <h1><img src={Logo} alt="Czarodzieje kodu" /></h1>
-
-    {
-      pages.map((item, index) => (
-        <Card title={item.title.rendered}>
-         {index} <Fragment set:html={item.content.rendered} />
-        </Card>
-      ))
-    }
+    <header>
+      <h1><img src={Logo} alt="Czarodzieje kodu" /></h1>
+    </header>
+    <div>
+      {
+        sortedPosts.map((post) => (
+          <Post frontmatter={post.frontmatter}>
+            <Fragment set:html={post.compiledContent()} />
+          </Post>
+        ))
+      }
+    </div>
   </main>
 </Layout>
 
@@ -29,12 +44,15 @@ import pages from "../data/czarodzieje.json";
     margin: 2rem 0;
   }
 
-  main {
+header {
     margin: auto;
-    padding: 1em;
-    max-width: 100ch;
+    padding: 1rem max(1rem,calc(50% - 50ch));
   }
 
+  header img{
+    max-width: 100%;
+    width: 300px;
+  }
   .text-gradient {
     font-weight: 900;
     background-image: var(--astro-gradient);
