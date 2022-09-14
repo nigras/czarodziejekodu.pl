@@ -16,5 +16,5 @@ Będzie ciekawie, interaktywnie i podobnie jak na zajęciach stacjonarnych – k
 
 Tworzymy dla Was program i super zajęcia, które pozwolą Wam nauczyć się nowych rzeczy jak również kontynuować rozwój po ich zakończeniu.
 
-![](https://www.czarodziejekodu.pl/wp-content/uploads/2020/06/czarodzieje_online-920x1024.jpg)
+![](/images/czarodzieje_online-920x1024.jpg)
 
