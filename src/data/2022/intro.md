@@ -17,5 +17,5 @@ Bezpłatna konferencja programistyczna dla dzieci w wieku 6-14 lat.
 15 października 2022r. (sobota) \
 MIMUW, ul. Banacha 2.
 
-Dołącz do wesołej ekipy i wesprzyj nas w dniu wydarzenia.
+Dołącz do wesołej ekipy i wesprzyj nas w dniu wydarzenia. Aby być na bieżąco śledź nasz profil na FB
 
